@@ -57,4 +57,4 @@ Fig. 1.  Comparison of (a) U-Net, (b) U-Net++， and proposed (c) MACU-Net 3+. T
 Results:
 ------- 
 ![Result](https://github.com/lironui/MACU-Net/blob/master/figures/Fig.%204.png)  
-Fig. 3. Visualization of results on the WHDLD dataset (the left) and the GID dataset (the right).
+Fig. 2. Visualization of results on the WHDLD dataset (the left) and the GID dataset (the right).

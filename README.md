@@ -47,4 +47,4 @@ GF2_PMS2__L1A0001787089-MSS2
 GF2_PMS2__L1A0001838560-MSS2
 ```
 
-You can download the hyperspectral datasets in mat format at: http://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes, and move the files to `./datasets` folder.
+You can download datasets and prepare the files to `./datasets` folder.

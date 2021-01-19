@@ -1,6 +1,5 @@
 import torch
 from torch import nn
-from models.resnetacb import create_ResNet34
 
 
 class ChannelAttention(nn.Module):

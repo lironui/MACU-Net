@@ -51,9 +51,13 @@ You can download datasets and prepare the files to `./datasets` folder.
 
 Network:
 ------- 
-![network](https://github.com/lironui/MACU-Net/blob/master/figures/Fig.%201.tiff)  
+![network](https://github.com/lironui/MACU-Net/blob/master/figures/Fig.%201.png)  
 Fig. 1.  Comparison of (a) U-Net, (b) U-Net++， and proposed (c) MACU-Net 3+. The depth of each node is presented below the circle. 
+
+![ACB](https://github.com/lironui/MACU-Net/blob/master/figures/Fig.%202.png)  
+Fig. 2. (a) The ACB enhances the significance of the skeletons feature. (b) The structure of the asymmetric convolution block. 
 
 Results:
 ------- 
-![IP](https://github.com/lironui/Double-Branch-Dual-Attention-Mechanism-Network/blob/master/figures/Figure%209.%20Classi%EF%AC%81cation%20maps%20for%20the%20IP%20dataset%20using%203%25%20training%20samples.png)
+![Result](https://github.com/lironui/MACU-Net/blob/master/figures/Fig.%204.png)
+Fig. 3. Visualization of results on the WHDLD dataset (the left) and the GID dataset (the right).

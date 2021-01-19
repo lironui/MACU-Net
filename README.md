@@ -19,7 +19,6 @@ numpy >= 1.16.5
 PyTorch >= 1.3.1
 sklearn >= 0.20.4
 tqdm >= 4.46.1
-glob >= 
 imageio >= 2.8.0
 ```
 
@@ -53,3 +52,7 @@ Network:
 ------- 
 ![network](https://github.com/lironui/Double-Branch-Dual-Attention-Mechanism-Network/blob/master/figures/Figure%206.%20The%20structure%20of%20the%20DBDA%20network.png)  
 Fig. 1.  Comparison of (a) U-Net, (b) U-Net++， and proposed (c) MACU-Net 3+. The depth of each node is presented below the circle. 
+
+Results:
+------- 
+![IP](https://github.com/lironui/Double-Branch-Dual-Attention-Mechanism-Network/blob/master/figures/Figure%209.%20Classi%EF%AC%81cation%20maps%20for%20the%20IP%20dataset%20using%203%25%20training%20samples.png)

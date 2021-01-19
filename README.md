@@ -54,9 +54,6 @@ Network:
 ![network](https://github.com/lironui/MACU-Net/blob/master/figures/Fig.%201.png)  
 Fig. 1.  Comparison of (a) U-Net, (b) U-Net++， and proposed (c) MACU-Net 3+. The depth of each node is presented below the circle. 
 
-![ACB](https://github.com/lironui/MACU-Net/blob/master/figures/Fig.%202.png)  
-Fig. 2. (a) The ACB enhances the significance of the skeletons feature. (b) The structure of the asymmetric convolution block. 
-
 Results:
 ------- 
 ![Result](https://github.com/lironui/MACU-Net/blob/master/figures/Fig.%204.png)  

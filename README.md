@@ -59,5 +59,5 @@ Fig. 2. (a) The ACB enhances the significance of the skeletons feature. (b) The 
 
 Results:
 ------- 
-![Result](https://github.com/lironui/MACU-Net/blob/master/figures/Fig.%204.png)
+![Result](https://github.com/lironui/MACU-Net/blob/master/figures/Fig.%204.png)  
 Fig. 3. Visualization of results on the WHDLD dataset (the left) and the GID dataset (the right).

@@ -8,7 +8,7 @@ Feel free to contact me if you need any further information: lironui@163.com
 
 If our code is helpful to you, please cite:
 
-`Li, Rui, Chenxi Duan, and Shunyi Zheng. "MACU-Net Semantic Segmentation from High-Resolution Remote Sensing Images." arXiv preprint arXiv:2007.13083 (2020).`
+`Li, Rui, et al. "MACU-Net for Semantic Segmentation of Fine-Resolution Remotely Sensed Images." IEEE Geoscience and Remote Sensing Letters (2021): 1-5.`
 
 `Li, Rui, et al. "Multistage Attention ResU-Net for Semantic Segmentation of Fine-Resolution Remote Sensing Images." arXiv preprint arXiv:2011.14302 (2020).`
 

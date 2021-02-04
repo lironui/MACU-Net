@@ -28,12 +28,8 @@ train_path = './dataset/train/'
 val_path = './dataset/val/'
 test_path = './dataset/test/'
 out_file = './checkpoint/' + net.name
-save_epoch = 1
-test_step = 300
-log_step = 1
 num_GPU = 1
-index = 1000
-pre_trained = True
+index = 100
 torch.cuda.set_device(0)
 
 try:
@@ -70,12 +66,6 @@ if cuda:
 if num_GPU > 1:
     net = nn.DataParallel(net)
 
-if pre_trained and os.path.exists('%s/' % out_file + 'netG.pth'):
-    net.load_state_dict(torch.load('%s/' % out_file + 'netG.pth'))
-    # print('Load success!')
-else:
-    pass
-    # net.apply(weights_init)
 
 ###########   LOSS & OPTIMIZER   ##########
 criterion = nn.CrossEntropyLoss(ignore_index=255)
@@ -84,56 +74,56 @@ metric = SegmentationMetric(class_num)
 early_stopping = EarlyStopping(patience=10, verbose=True)
 
 if __name__ == '__main__':
-    # start = time.time()
-    # net.train()
-    # lr_adjust = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, 10, eta_min=learning_rate * 0.01, last_epoch=-1)
-    # for epoch in range(1, niter + 1):
-    #     for iter_num in trange(2000 // index, desc='train, epoch:%s' % epoch):
-    #         train_iter = train_datatset_.data_iter_index(index=index)
-    #         for initial_image, semantic_image in train_iter:
-    #             # print(initial_image.shape)
-    #             initial_image = initial_image.cuda()
-    #             semantic_image = semantic_image.cuda()
-    #
-    #             semantic_image_pred = net(initial_image)
-    #
-    #             loss = criterion(semantic_image_pred, semantic_image.long())
-    #             # print(loss)
-    #             optimizer.zero_grad()
-    #             loss.backward()
-    #             optimizer.step()
-    #     lr_adjust.step()
-    #
-    #     with torch.no_grad():
-    #         net.eval()
-    #         val_iter = val_datatset_.data_iter()
-    #
-    #         for initial_image, semantic_image in tqdm(val_iter, desc='val'):
-    #             # print(initial_image.shape)
-    #             initial_image = initial_image.cuda()
-    #             semantic_image = semantic_image.cuda()
-    #
-    #             semantic_image_pred = net(initial_image).detach()
-    #             semantic_image_pred = F.softmax(semantic_image_pred.squeeze(), dim=0)
-    #             semantic_image_pred = semantic_image_pred.argmax(dim=0)
-    #
-    #             semantic_image = torch.squeeze(semantic_image.cpu(), 0)
-    #             semantic_image_pred = torch.squeeze(semantic_image_pred.cpu(), 0)
-    #
-    #             metric.addBatch(semantic_image_pred, semantic_image)
-    #
-    #     mIoU = metric.meanIntersectionOverUnion()
-    #     print('mIoU: ', mIoU)
-    #     metric.reset()
-    #     net.train()
-    #
-    #     early_stopping(1 - mIoU, net, '%s/' % out_file + 'netG.pth')
-    #
-    #     if early_stopping.early_stop:
-    #         break
-    #
-    # end = time.time()
-    # print('Program processed ', end - start, 's, ', (end - start)/60, 'min, ', (end - start)/3600, 'h')
+    start = time.time()
+    net.train()
+    lr_adjust = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, 10, eta_min=learning_rate * 0.01, last_epoch=-1)
+    for epoch in range(1, niter + 1):
+        for iter_num in trange(2000 // index, desc='train, epoch:%s' % epoch):
+            train_iter = train_datatset_.data_iter_index(index=index)
+            for initial_image, semantic_image in train_iter:
+                # print(initial_image.shape)
+                initial_image = initial_image.cuda()
+                semantic_image = semantic_image.cuda()
+
+                semantic_image_pred = net(initial_image)
+
+                loss = criterion(semantic_image_pred, semantic_image.long())
+                # print(loss)
+                optimizer.zero_grad()
+                loss.backward()
+                optimizer.step()
+        lr_adjust.step()
+
+        with torch.no_grad():
+            net.eval()
+            val_iter = val_datatset_.data_iter()
+
+            for initial_image, semantic_image in tqdm(val_iter, desc='val'):
+                # print(initial_image.shape)
+                initial_image = initial_image.cuda()
+                semantic_image = semantic_image.cuda()
+
+                semantic_image_pred = net(initial_image).detach()
+                semantic_image_pred = F.softmax(semantic_image_pred.squeeze(), dim=0)
+                semantic_image_pred = semantic_image_pred.argmax(dim=0)
+
+                semantic_image = torch.squeeze(semantic_image.cpu(), 0)
+                semantic_image_pred = torch.squeeze(semantic_image_pred.cpu(), 0)
+
+                metric.addBatch(semantic_image_pred, semantic_image)
+
+        mIoU = metric.meanIntersectionOverUnion()
+        print('mIoU: ', mIoU)
+        metric.reset()
+        net.train()
+
+        early_stopping(1 - mIoU, net, '%s/' % out_file + 'netG.pth')
+
+        if early_stopping.early_stop:
+            break
+
+    end = time.time()
+    print('Program processed ', end - start, 's, ', (end - start)/60, 'min, ', (end - start)/3600, 'h')
 
     test_datatset_ = train_dataset(test_path, time_series=band)
     start = time.time()

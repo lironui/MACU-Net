@@ -10,7 +10,7 @@ If our code is helpful to you, please cite:
 
 `Li, Rui, et al. "MACU-Net for Semantic Segmentation of Fine-Resolution Remotely Sensed Images." IEEE Geoscience and Remote Sensing Letters (2021): 1-5.`
 
-`Li, Rui, et al. "Multistage Attention ResU-Net for Semantic Segmentation of Fine-Resolution Remote Sensing Images." arXiv preprint arXiv:2011.14302 (2020).`
+`Li, Rui, et al. "Multistage Attention ResU-Net for Semantic Segmentation of Fine-Resolution Remote Sensing Images." IEEE Geoscience and Remote Sensing Letters (2021): 1-5.`
 
 
 Requirements：

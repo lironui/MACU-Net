@@ -12,7 +12,6 @@ If our code is helpful to you, please cite:
 
 `R. Li, S. Zheng, C. Duan, J. Su and C. Zhang. "Multistage Attention ResU-Net for Semantic Segmentation of Fine-Resolution Remote Sensing Images." in IEEE Geoscience and Remote Sensing Letters, doi: 10.1109/LGRS.2021.3063381.`
 
-
 Requirements：
 ------- 
 ```

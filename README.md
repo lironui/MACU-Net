@@ -47,6 +47,11 @@ GF2_PMS2__L1A0001838560-MSS2
 ```
 
 You can download datasets and prepare the files to `./datasets` folder.
+Note: 
+```
+Transfer the lable images form RGB Format to Grey-scale Map.
+Augment the training set by the technology mentioned in our paper.
+```
 
 Network:
 ------- 

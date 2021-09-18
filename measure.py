@@ -5,14 +5,13 @@ class SegmentationMetric(object):
     def __init__(self, numClass):
         self.numClass = numClass
         self.confusionMatrix = np.zeros((self.numClass,) * 2)
-        self.confusionMatrix_foreground = np.zeros((self.numClass - 1,) * 2)
 
     def meanIntersectionOverUnion(self):
         # Intersection = TP Union = TP + FP + FN
         # IoU = TP / (TP + FP + FN)
-        intersection = np.diag(self.confusionMatrix_foreground)
-        union = np.sum(self.confusionMatrix_foreground, axis=1) + np.sum(self.confusionMatrix_foreground, axis=0) - np.diag(
-            self.confusionMatrix_foreground)
+        intersection = np.diag(self.confusionMatrix)
+        union = np.sum(self.confusionMatrix, axis=1) + np.sum(self.confusionMatrix, axis=0) - np.diag(
+            self.confusionMatrix)
         IoU = intersection / union
         mIoU = np.nanmean(IoU)
         return mIoU
